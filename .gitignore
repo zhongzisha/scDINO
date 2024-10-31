@@ -1,0 +1,7 @@
+DeepPhenotype*/
+*.pth
+
+.DS_Store
+
+.vscode
+
