@@ -1,6 +1,6 @@
 meta:
-  name_of_run: "run20241102"
-  output_dir: "/scratch/cluster_scratch/zhongz2/scDINO/outputs"
+  name_of_run: "run20241102_4gpus"
+  output_dir: "/scratch/cluster_scratch/zhongz2/scDINO/outputs_4gpus_halfLR"
   dataset_dir: "/tmp/zhongz2/DeepPhenotype_PBMC_ImageSet_YSeverin/Training"
   folder_depth_for_labels: 0 # 0 is the folder where the images are, 1 is the folder above, etc.
   train_datasetsplit_fraction: 0.8
@@ -8,15 +8,15 @@ meta:
   images_are_RGB: False
   channel_dict: { 0: "aTub", 1: "BF", 2: "DAPI", 3: "Oct4", 4: "PE" } #do not use underscore or slash in channel name
   # selected_channel_combination_per_run: ["01234", "0", "1", "2", "3", "4"] #01234 is all 5 channels, 0 is only APC, 1 is only BF, etc.
-  selected_channel_combination_per_run: ["1"] #01234 is all 5 channels, 0 is only APC, 1 is only BF, etc.
+  selected_channel_combination_per_run: ["01234"] #01234 is all 5 channels, 0 is only APC, 1 is only BF, etc.
   center_crop: 0 #0 is no center crop
 
 train_scDINO:
   dino_vit_name: "scDINO"
   fraction_for_mean_std_calc: 0.2
-  epochs: 100
+  epochs: 200
   saveckp_freq: 2
-  num_gpus: 8
+  num_gpus: 4
   batch_size_per_gpu: 32
   num_workers: 4
   dist_url: "env://"
@@ -34,7 +34,7 @@ train_scDINO:
     weight_decay_end: 0.4
     clip_grad: 3
     freeze_last_layer: 1
-    lr: 0.0005
+    lr: 0.00025
     warmup_epochs: 5
     min_lr: 0.000001
     optimizer: "adamw"
