@@ -34,7 +34,8 @@ snakemake -s full_pipeline_snakefile1_4gpus all \
 --configfile="configs/scDINO_full_pipeline1_4gpus.yaml" \
 --keep-incomplete \
 --drop-metadata \
---cores 32 \
+--cores 1 \
+--jobs 1 \
 -k \
 --latency-wait 45
 

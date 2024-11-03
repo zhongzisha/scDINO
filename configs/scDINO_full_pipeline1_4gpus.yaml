@@ -14,7 +14,7 @@ meta:
 train_scDINO:
   dino_vit_name: "scDINO"
   fraction_for_mean_std_calc: 0.2
-  epochs: 200
+  epochs: 192
   saveckp_freq: 2
   num_gpus: 4
   batch_size_per_gpu: 32
